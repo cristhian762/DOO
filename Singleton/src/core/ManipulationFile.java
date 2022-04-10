@@ -16,74 +16,74 @@ import java.io.PrintWriter;
  * @author 20191bsi0077
  */
 public class ManipulationFile {
-    private int lastNumber;
-    private java.io.File file = new java.io.File("data.txt");
 
-    public ManipulationFile(){
-        
-        if (!file.exists()) {
-            creatFileData(999990101);
-        } 
-        
-        readFileData();
-    }
-    
-    
-    private void creatFileData(int number){
-        boolean statusFile = false;
-        
-        try {
-            statusFile = file.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+	private int lastNumber;
+	private final java.io.File file = new java.io.File("data.txt");
 
-        if(statusFile){
-            try {
-                FileWriter fileWriter = new FileWriter(file, false);
+	public ManipulationFile() {
 
-                PrintWriter printWriter = new PrintWriter(fileWriter);
-                printWriter.print(Integer.toString(number));
+		if (!file.exists()) {
+			creatFileData(999990101);
+		}
 
-                printWriter.flush();
-                printWriter.close();
+		readFileData();
+	}
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+	private void creatFileData(int number) {
+		boolean statusFile = false;
 
-        } else {
-            System.out.println("Não foi possível criar o arquivo!");
-        }
-    }
-    
-    private void readFileData(){
-        try {
-            FileReader fileReader = new FileReader(file);
+		try {
+			statusFile = file.createNewFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
+		if (statusFile) {
+			try {
+				FileWriter fileWriter = new FileWriter(file, false);
 
-            lastNumber = Integer.parseInt(bufferedReader.readLine());
-            
-            fileReader.close();
-            bufferedReader.close();
-            
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    
-    private void updateFileData(int number){
-        file.delete();
-        
-        creatFileData(number);
-    }
-    
-    public void setLastNumber(int number){
-        updateFileData(number);
-    }
-    
-    public int getLastNumber() {
-        return lastNumber;
-    }
+				try (PrintWriter printWriter = new PrintWriter(fileWriter)) {
+					printWriter.print(Integer.toString(number));
+
+					printWriter.flush();
+				}
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		} else {
+			System.out.println("Não foi possível criar o arquivo!");
+		}
+	}
+
+	private void readFileData() {
+		try {
+			BufferedReader bufferedReader;
+			
+			try (FileReader fileReader = new FileReader(file)) {
+				bufferedReader = new BufferedReader(fileReader);
+				lastNumber = Integer.parseInt(bufferedReader.readLine());
+			}
+
+			bufferedReader.close();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void updateFileData(int number) {
+		file.delete();
+
+		creatFileData(number);
+	}
+
+	public void setLastNumber(int number) {
+		updateFileData(number);
+	}
+
+	public int getLastNumber() {
+		return lastNumber;
+	}
 }
