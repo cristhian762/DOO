@@ -16,14 +16,17 @@ public class Main {
     public static void main(String[] args) {
         MembroWhatsApp telefone = new MembroWhatsApp();
         MembroEmail email = new MembroEmail();
+        MembroTwitter twitter = new MembroTwitter();
         
         CaixaEntradaGrupo mensagem = new CaixaEntradaGrupo();
         
         mensagem.addObserver(telefone);
         mensagem.addObserver(email);
+        mensagem.addObserver(twitter);
         
         telefone.setNumber(2799661);
         email.setEmail("cristhian762@gmail.com");
+        twitter.setUsuario("@Cristhian762");
 
         mensagem.setNovaMensagem("Hello world");
     }
