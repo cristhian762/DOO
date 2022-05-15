@@ -1,7 +1,6 @@
 package adaptercliente.model;
 
 public interface ICliente {
-
     public String getNomeCompleto();
 
     public void setNomeCompleto(String nomeCompleto);

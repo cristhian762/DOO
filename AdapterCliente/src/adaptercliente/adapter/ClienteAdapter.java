@@ -12,17 +12,50 @@ import lib.ClienteExterno;
  * @author cristhian
  */
 public class ClienteAdapter extends Cliente {
-	private final Cliente cli = new Cliente();
+	private final ClienteExterno ce;
 	
-	
-	public ClienteAdapter (ClienteExterno ce){
-		this.cli.setNomeCompleto(ce.getNome() + " " + ce.getSobreNome());
-		this.cli.setTelefone(ce.getDddTelefone() + ce.getTelefone());
-		this.cli.setCelular(ce.getDddCelular() + ce.getCelular());
-		this.cli.setEmail(ce.getEmail());
+	public ClienteAdapter(ClienteExterno ce) {
+		this.ce = ce;
+	}
+
+	@Override
+	public void setNomeCompleto(String nomeCompleto) {
+		super.setNomeCompleto(this.ce.getNome() + " " +this.ce.getSobreNome()); 
+	}
+
+	@Override
+	public String getNomeCompleto() {
+		return this.ce.getNome() + " " +this.ce.getSobreNome();
+	}
+
+	@Override
+	public void setEmail(String email) {
+		super.setEmail(this.ce.getEmail());
+	}
+
+	@Override
+	public String getEmail() {
+		return this.ce.getEmail();
+	}
+
+	@Override
+	public void setCelular(String celular) {
+		super.setCelular(this.ce.getDddCelular() + this.ce.getCelular());
+	}
+
+	@Override
+	public String getCelular() {
+		return this.ce.getDddCelular() + this.ce.getCelular();
+	}
+
+	@Override
+	public void setTelefone(String telefone) {
+		super.setTelefone(this.ce.getTelefone());
+	}
+
+	@Override
+	public String getTelefone() {
+		return this.ce.getDddTelefone() + this.ce.getTelefone();
 	}
 	
-	public Cliente getCliente(){
-		return this.cli;
-	}
 }
