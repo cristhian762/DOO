@@ -141,7 +141,7 @@ public class TelaSaque extends javax.swing.JFrame {
        SaqueHandler n20 = new Nota20Handler();
        SaqueHandler n10 = new Nota10Handler();
        SaqueHandler n5 = new Nota5Handler();
-
+       
        ArrayList lista = new ArrayList();       
        lista.add(Nota100Handler.N100);
        lista.add(Nota50Handler.N50);
@@ -149,6 +149,9 @@ public class TelaSaque extends javax.swing.JFrame {
        lista.add(Nota10Handler.N10);
        lista.add(Nota5Handler.N5);
 
+       n100.setNextHandler(n50);
+       n100.setNextHandler(n50);
+       
        n100.processHander(lista, Integer.parseInt(valorFatura.getText()));                       
        
     }//GEN-LAST:event_jButton1ActionPerformed
