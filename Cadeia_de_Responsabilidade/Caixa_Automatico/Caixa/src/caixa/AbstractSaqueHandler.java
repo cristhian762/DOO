@@ -19,14 +19,14 @@ public abstract class AbstractSaqueHandler implements SaqueHandler {
         
     }
     protected abstract int getTipoNota();
-    protected int valorRestante(int valor){
+    protected int valorRestante(int valor, int fator){
         
-        int nNotas100 = valor / 100 ;
+        int nNotas = valor / fator ;
         
         JOptionPane.showMessageDialog(null, "Número de notas de 100: " 
-                + nNotas100);
+                + nNotas);
         
-        return valor - nNotas100 * 100;
+        return valor - nNotas * fator;
     }    
     
     protected abstract int handleSaque(int valor);

@@ -136,10 +136,18 @@ public class TelaSaque extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
                 
-       SaqueHandler n100 = new Nota100Handler();               
+       SaqueHandler n100 = new Nota100Handler();
+       SaqueHandler n50 = new Nota50Handler();
+       SaqueHandler n20 = new Nota20Handler();
+       SaqueHandler n10 = new Nota10Handler();
+       SaqueHandler n5 = new Nota5Handler();
 
        ArrayList lista = new ArrayList();       
        lista.add(Nota100Handler.N100);
+       lista.add(Nota50Handler.N50);
+       lista.add(Nota20Handler.N20);
+       lista.add(Nota10Handler.N10);
+       lista.add(Nota5Handler.N5);
 
        n100.processHander(lista, Integer.parseInt(valorFatura.getText()));                       
        

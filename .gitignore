@@ -1,6 +1,7 @@
 /LeituraCSV/build/
 /UsuarioSerializado/nbproject/private/
 /UsuarioSerializado/build/
+<<<<<<< HEAD
 /FlyweightBrowser/build/
 /FlyweightBrowser/nbproject/private/
 /PesoMoscaExemplo/build/
@@ -10,3 +11,8 @@
 /Cadeia_de_Responsabilidade/Pagamentos/dist/
 /Cadeia_de_Responsabilidade/Caixa_Automatico/Caixa/nbproject/private/
 /Cadeia_de_Responsabilidade/Caixa_Automatico/Caixa/build/
+=======
+/AdapterCliente/nbproject/private/
+/AdapterCliente/build/
+/ClienteExterno/nbproject/private/
+>>>>>>> 530b20abf31c8c56d481653bab78f71c3b1faa19
