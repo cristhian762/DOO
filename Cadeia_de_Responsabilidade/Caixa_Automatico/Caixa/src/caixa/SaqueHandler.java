@@ -1,10 +1,10 @@
-
 package caixa;
 
 import java.util.List;
 
+public interface SaqueHandler {
 
-public interface SaqueHandler {    
-    public void setNextHandler(SaqueHandler handler);
-    public void processHander(List lista, int valor);    
+	public void setNextHandler(SaqueHandler handler);
+
+	public void processHander(List lista, int valor);
 }
