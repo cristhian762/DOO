@@ -1,10 +1,8 @@
 
 package templateexemplo;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,26 +10,39 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 
- 
-/*Esse codigo esta uma bangunca..*/
-
 public class ExportFilesWord extends AbstractExportFiles {
-    public void exportWord(String txt){
+    
+    public ExportFilesWord () {
+        String current = null;
+        try {
+            current = new java.io.File(".").getCanonicalPath();
+            out1 = new FileOutputStream(new File(current + "\\src\\" + "word.docx"));
+            document = new XWPFDocument();
+            //Blank Document
+        } catch (IOException ex) {
+            Logger.getLogger(AbstractExportFiles.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @Override
+    public void export(String txt){
              String[] txtLinhas = txt.split("\n");
         for(Object linhas : txtLinhas )
         {
-            printLineWord((String)linhas);
+            printLine((String)linhas);
         }   
-        saveWord();   
+        save();   
     }
 
-    private void printLineWord(String linha) {
+    @Override
+    protected void printLine(String linha) {
         XWPFParagraph paragraph = document.createParagraph();
         XWPFRun run = paragraph.createRun();
         run.setText(linha);
     }
 
-    protected void saveWord() {
+    @Override
+    protected void save() {
         try {
             document.write(out1);
             out1.close();

@@ -12,5 +12,4 @@ public class TemplateMain {
       exportHtml.exportHTML(texto);
       exportWord.exportWord(texto);
     }
-    
 }
