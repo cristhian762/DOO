@@ -9,7 +9,7 @@ public class TemplateMain {
         ExportFilesHtml exportHtml = new ExportFilesHtml();
         ExportFilesWord exportWord = new ExportFilesWord();
 
-      exportHtml.exportHTML(texto);
-      exportWord.exportWord(texto);
+      exportHtml.export(texto);
+      exportWord.export(texto);
     }
 }

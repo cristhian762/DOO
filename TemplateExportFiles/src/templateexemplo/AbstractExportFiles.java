@@ -13,4 +13,8 @@ abstract class AbstractExportFiles {
     BufferedWriter out = null;
     XWPFDocument document;
     FileOutputStream out1 = null;
+    
+    public final void AbstractExportFiles() {
+        
+    }
 }
